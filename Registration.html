@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mystyle.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+     <a class="navbar-brand" href="#">Event Workshops</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="./Index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="./Services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="./Registration.html">Resgistration</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link " href="./About Us.html">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main>
+    <h1>Register for Events</h1>
+      <div class="card-grid">
+        <div class="event-container">
+            <img src="./E-img/faith1.jpeg">
+            <div class="event-content">
+                <strong>New Believers</strong> 
+                <span class="speaker-name-display" id="speakerName1"></span>
+                <p>Attending: <span id="shop1" class="registration-info">0</span></p>
+                <button onclick="registerEvent(0)">Register Now</button>
+            </div>
+        </div>
+        <div class="event-container">
+            <img src="./E-img/m1.jpg" alt="">
+            <div class="event-content">
+                <strong>Newly Married</strong> 
+                <span class="speaker-name-display" id="speakerName2"></span> 
+                <p>Attending: <span id="shop2" class="registration-info">0</span></p>
+                <button onclick="registerEvent(1)">Register Now</button>
+            </div>
+        </div>
+        <div class="event-container">
+            <img src="./E-img/singles.jpg" alt="">
+            <div class="event-content">
+                <strong>Singles</strong> 
+                <span class="speaker-name-display" id="speakerName3"></span> 
+                <p>Attending: <span id="shop3" class="registration-info">0</span></p>
+                <button onclick="registerEvent(2)">Register Now</button>
+            </div>
+        </div>
+        <div class="event-container">
+            <img src="./E-img/prayerB.jpeg" alt="">
+            <div class="event-content">
+                <strong>Enterpreneurs</strong> 
+                <span class="speaker-name-display" id="speakerName4"></span> 
+                <p>Attending: <span id="shop4" class="registration-info">0</span></p>
+                <button onclick="registerEvent(3)">Register Now</button>
+            </div>
+        </div>
+        <div class="event-container">
+            <img src="./E-img/heal.jpeg" alt="">
+            <div class="event-content">
+                <strong>Heal Your Wounds</strong> 
+                <span class="speaker-name-display" id="speakerName5"></span> 
+                <p>Attending: <span id="shop5" class="registration-info">0</span></p>
+                <button onclick="registerEvent(4)">Register Now</button>
+            </div>
+        </div>
+    </div>
+</main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./scripts/registration.js"></script>
+</body>
+</html>
+
