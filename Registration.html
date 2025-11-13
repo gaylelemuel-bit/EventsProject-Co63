@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./mystyle.css">
+    <link rel="stylesheet" href="./Styles/mystyle.css">
+    <link rel="stylesheet" href="./Styles/form.css">
 </head>
 <body>
 <header>
@@ -35,57 +36,108 @@
 </nav>
 </header>
 <main>
-    <h1>Register for Events</h1>
+    <h1>Events</h1>
       <div class="card-grid">
         <div class="event-container">
             <img src="./E-img/faith1.jpeg">
             <div class="event-content">
                 <strong>New Believers</strong> 
-                <span class="speaker-name-display" id="speakerName1"></span>
+                <p>Speaker: Johnny Chang<br>
+                location: Online<br>
+                 Date: January 2 2026<br>
+                  Duration: 3 Days</p>
                 <p>Attending: <span id="shop1" class="registration-info">0</span></p>
-                <button onclick="registerEvent(0)">Register Now</button>
             </div>
         </div>
         <div class="event-container">
             <img src="./E-img/m1.jpg" alt="">
             <div class="event-content">
                 <strong>Newly Married</strong> 
-                <span class="speaker-name-display" id="speakerName2"></span> 
+                <p>Speaker: Pastor Micahel Todd<br>
+                Location: Transformation Church<br>
+                 Date: February 13 2026<br>
+                 Duration: 6 Days</p>
                 <p>Attending: <span id="shop2" class="registration-info">0</span></p>
-                <button onclick="registerEvent(1)">Register Now</button>
+                
             </div>
         </div>
         <div class="event-container">
             <img src="./E-img/singles.jpg" alt="">
             <div class="event-content">
                 <strong>Singles</strong> 
-                <span class="speaker-name-display" id="speakerName3"></span> 
+                <p>Speaker: Brenda Palmer<br>
+                    Location: Peacock Theater<br>
+                    Date: March 6 2026<br>
+                    Duration: 3 Days</p>
                 <p>Attending: <span id="shop3" class="registration-info">0</span></p>
-                <button onclick="registerEvent(2)">Register Now</button>
+                
             </div>
         </div>
         <div class="event-container">
             <img src="./E-img/prayerB.jpeg" alt="">
             <div class="event-content">
                 <strong>Enterpreneurs</strong> 
-                <span class="speaker-name-display" id="speakerName4"></span> 
+                <p>Speaker: Eric Thomas<br>
+                    Location: AT&T Stadium <br>
+                    Date: January 14 2026<br>
+                    Duration: 5 Days</p>
                 <p>Attending: <span id="shop4" class="registration-info">0</span></p>
-                <button onclick="registerEvent(3)">Register Now</button>
+                
             </div>
         </div>
         <div class="event-container">
             <img src="./E-img/heal.jpeg" alt="">
             <div class="event-content">
                 <strong>Heal Your Wounds</strong> 
-                <span class="speaker-name-display" id="speakerName5"></span> 
+                <p> Speaker: Pastor Danielle Williams McCord<br>
+                    Location: Atlanta GA<br>
+                    Date: January 30 2026<br>
+                    Duration: 4 Days</p>
                 <p>Attending: <span id="shop5" class="registration-info">0</span></p>
-                <button onclick="registerEvent(4)">Register Now</button>
             </div>
         </div>
     </div>
+      <div class="registration-log section">
+        <h2>Individual Log</h2>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <!-- This is where JavaScript will insert the table body content -->
+            <tbody id="registration-table-body">
+                <!-- Table rows will appear here -->
+            </tbody>
+        </table>
+    </div>
+    <form class="form-container"method="post">
+        <h2> Registration</h2>
+        <label>Name:</label>
+        <input type="text" name="" value="" placeholder="Full Name" required>
+        <label>Email:</label>
+        <input type="text" name="" value="" placeholder="example1@gamil.com">
+        <label>Phone:</label>
+        <input type="tel" name="" value="" placeholder="(123)-456-7890">
+        <label>Worshop:</label>
+        <select>
+            <option>--Title--</option>
+            <option>New Believers</option>
+            <option>Newly Married</option>
+            <option>Singles</option>
+            <option>Enterpreneurs</option>
+            <option>Heal Your Wounds</option>
+        </select>
+         <div class="buttons">
+            <button class="btn1" type="submit">Register</button>
+            <button class="btn2"type="submit">Clear Form</button>
+          </div>
+    </form>
+    
 </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./scripts/registration.js"></script>
 </body>
 </html>
-

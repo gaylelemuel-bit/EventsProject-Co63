@@ -38,49 +38,78 @@ let event5 = {
     duration: "4 Days",
     registrations: 0
 };
-let workshops = [event1, event2, event3, event4, event5];
+let workshops = [
+    { title: "New Believers", countId: 'shop1' },
+    { title: "Newly Married", countId: 'shop2' },
+    { title: "Singles", countId: 'shop3' },
+    { title: "Enterpreneurs", countId: 'shop4' },
+    { title: "Heal Your Wounds", countId: 'shop5'}
+];
 
-function registerEvent(eventIndex) {
-    workshops[eventIndex].registrations++;
-    displayEventCounts();
+let allRegistrations = [];
+function updateDisplayCounts() {
+    workshops.forEach(event => {
+        // Count how many times this specific event title appears in the log
+        const count = allRegistrations.filter(reg => reg.eventTitle === event.title).length;
+        
+        const countElement = document.getElementById(event.countId);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    });
 }
-function displayEventCounts() {
-    const shop1Display = document.getElementById('shop1');
-    if (shop1Display) { 
-        shop1Display.innerHTML = event1.registrations; 
-    }
-    const shop2Display = document.getElementById('shop2');
-    if (shop2Display) {
-        shop2Display.innerHTML = event2.registrations; 
-    }
-    const shop3Display = document.getElementById('shop3');
-    if (shop3Display) {
-        shop3Display.innerHTML = event3.registrations; 
-    }
-    const shop4Display = document.getElementById('shop4');
-    if (shop4Display) {
-        shop4Display.innerHTML = event4.registrations; 
-    }
-    const shop5Display = document.getElementById('shop5');
-    if (shop5Display) {
-        shop5Display.innerHTML = event5.registrations; 
-    }
+//  Function to Display the Individual Log as a TABLE ---
+function renderIndividualRegistrations() {
+    const tableBody = document.getElementById('registration-table-body');
+    tableBody.innerHTML = ''; 
+    allRegistrations.forEach(reg => {
+        const tableRow = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = reg.name;
+
+        const eventCell = document.createElement('td');
+        eventCell.textContent = reg.eventTitle;
+
+        tableRow.appendChild(nameCell);
+        tableRow.appendChild(eventCell);
+        tableBody.appendChild(tableRow);
+    });
 }
-function displaySpeakerNames() {
-    const speaker1El = document.getElementById('speakerName1');
-    if (speaker1El) { speaker1El.innerHTML = event1.speaker; }
+// - Function to Handle When Someone Clicks "Register" 
+function handleRegistrationForm(event) {
+    event.preventDefault();
 
-    const speaker2El = document.getElementById('speakerName2');
-    if (speaker2El) { speaker2El.innerHTML = event2.speaker; }
+    const nameInput = document.querySelector('input[placeholder="Full Name"]');
+    const selectedTitle = document.querySelector('select').value;
+    const userName = nameInput.value.trim();
 
-    const speaker3El = document.getElementById('speakerName3');
-    if (speaker3El) { speaker3El.innerHTML = event3.speaker; }
+    if (userName === "" || selectedTitle === "--Title--") {
+        alert("Please enter your name and select a workshop title.");
+        return;
+    }
+    allRegistrations.push({
+        name: userName,
+        eventTitle: selectedTitle
+    });
 
-    const speaker4El = document.getElementById('speakerName4');
-    if (speaker4El) { speaker4El.innerHTML = event4.speaker; }
+    // Update both display sections
+    updateDisplayCounts();  
+    renderIndividualRegistrations(); 
 
-    const speaker5El = document.getElementById('speakerName5');
-    if (speaker5El) { speaker5El.innerHTML = event5.speaker; }
+    alert(`Thank you, ${userName}! You are registered for "${selectedTitle}".`);
+    
+    // Clear form fields
+    document.querySelector('.form-container').reset();
 }
-displaySpeakerNames();
-displayEventCounts(); 
+
+const registrationForm = document.querySelector('.form-container');
+registrationForm.addEventListener('submit', handleRegistrationForm);
+
+const clearButton = document.querySelector('.btn2');
+clearButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    registrationForm.reset();
+});
+updateDisplayCounts();
+renderIndividualRegistrations();

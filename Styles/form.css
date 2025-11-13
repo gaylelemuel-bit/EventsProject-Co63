@@ -1,0 +1,35 @@
+.form-container{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    margin-left: 13%;
+    margin-top: 50px;
+    padding: 20px;
+    width: 80%;
+    border: 1px solid rosybrown;
+}
+.buttons{
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+
+}
+ .btn1{
+    background-color: royalblue;
+    color: white;
+    margin-left: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+ .btn2{
+    background-color: rgb(107, 105, 105);
+    color: white;
+    margin-left: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+::placeholder{
+    color: gainsboro;
+}
