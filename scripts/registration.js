@@ -45,71 +45,93 @@ let workshops = [
     { title: "Enterpreneurs", countId: 'shop4' },
     { title: "Heal Your Wounds", countId: 'shop5'}
 ];
-
 let allRegistrations = [];
 function updateDisplayCounts() {
     workshops.forEach(event => {
-        // Count how many times this specific event title appears in the log
         const count = allRegistrations.filter(reg => reg.eventTitle === event.title).length;
-        
         const countElement = document.getElementById(event.countId);
         if (countElement) {
             countElement.textContent = count;
         }
     });
 }
-//  Function to Display the Individual Log as a TABLE ---
-function renderIndividualRegistrations() {
-    const tableBody = document.getElementById('registration-table-body');
-    tableBody.innerHTML = ''; 
-    allRegistrations.forEach(reg => {
-        const tableRow = document.createElement('tr');
+function renderIndividualRegistrationsAsCards() {
+    const cardContainer = document.getElementById('registration-card-container');
+    cardContainer.innerHTML = ''; 
+    
+    // assign an index for easy identification
+    allRegistrations.forEach((reg, index) => {
+        const cardWrapper = document.createElement('div');
+        cardWrapper.classList.add('col-sm-6', 'col-lg-4'); 
 
-        const nameCell = document.createElement('td');
-        nameCell.textContent = reg.name;
+        const card = document.createElement('div');
+        card.classList.add('card', 'shadow-sm', 'h-100'); 
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
 
-        const eventCell = document.createElement('td');
-        eventCell.textContent = reg.eventTitle;
+        const nameElement = document.createElement('h5');
+        nameElement.classList.add('card-title');
+        nameElement.textContent = reg.name;
 
-        tableRow.appendChild(nameCell);
-        tableRow.appendChild(eventCell);
-        tableBody.appendChild(tableRow);
+        const eventElement = document.createElement('h6');
+        eventElement.classList.add('card-subtitle', 'mb-2', 'text-muted');
+        eventElement.textContent = reg.eventTitle;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mt-3'); 
+        deleteButton.textContent = 'Delete';
+        deleteButton.dataset.index = index; 
+
+        deleteButton.addEventListener('click', function() {
+            const itemIndex = parseInt(this.dataset.index);
+            // Remove the item from the allRegistrations array
+            allRegistrations.splice(itemIndex, 1);
+            
+            renderIndividualRegistrationsAsCards();
+            updateDisplayCounts();
+        });
+        cardBody.appendChild(nameElement);
+        cardBody.appendChild(eventElement);
+        cardBody.appendChild(deleteButton); 
+        card.appendChild(cardBody);
+        cardWrapper.appendChild(card);
+        
+        cardContainer.appendChild(cardWrapper);
     });
 }
-// - Function to Handle When Someone Clicks "Register" 
 function handleRegistrationForm(event) {
     event.preventDefault();
-
     const nameInput = document.querySelector('input[placeholder="Full Name"]');
-    const selectedTitle = document.querySelector('select').value;
+    const selectedTitle = document.querySelector('select').value; 
     const userName = nameInput.value.trim();
 
     if (userName === "" || selectedTitle === "--Title--") {
         alert("Please enter your name and select a workshop title.");
         return;
     }
+    // Add new registration to our data array
     allRegistrations.push({
         name: userName,
         eventTitle: selectedTitle
     });
-
-    // Update both display sections
     updateDisplayCounts();  
-    renderIndividualRegistrations(); 
+    renderIndividualRegistrationsAsCards(); 
 
     alert(`Thank you, ${userName}! You are registered for "${selectedTitle}".`);
-    
-    // Clear form fields
     document.querySelector('.form-container').reset();
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const registrationForm = document.querySelector('.form-container');
+    const clearButton = document.querySelector('.btn2');
 
-const registrationForm = document.querySelector('.form-container');
-registrationForm.addEventListener('submit', handleRegistrationForm);
-
-const clearButton = document.querySelector('.btn2');
-clearButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    registrationForm.reset();
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', handleRegistrationForm);
+    }
+    if (clearButton) {
+        clearButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            registrationForm.reset();
+        });
+    }
+    updateDisplayCounts();
 });
-updateDisplayCounts();
-renderIndividualRegistrations();
