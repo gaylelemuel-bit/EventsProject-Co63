@@ -1,4 +1,4 @@
-// Function to handle the purchase process
+//function for learn more 
 function directToRegisterPage() {
     window.location.href= "Registration.html";
 }
