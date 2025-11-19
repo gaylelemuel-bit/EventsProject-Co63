@@ -8,7 +8,7 @@ let event1 = {
 };
 let event2 = {
     title: "Newly Married",
-    speaker: "Pastor Micahel Todd",
+    speaker: "Pastor Michael Todd",
     location: "Transformation Church",
     date: "February 13 2026",
     duration: "6 Days",
