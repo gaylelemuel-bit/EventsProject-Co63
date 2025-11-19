@@ -10,7 +10,6 @@ function Service(title, speaker, date,location,duration){
     this.location= location;
     this.duration= duration;
 }
-
 // 2. pull info from the form
 function onSubmitService(eventService){
     eventService.preventDefault();
@@ -22,16 +21,13 @@ function onSubmitService(eventService){
     const location = serviceForm.elements["eventLocation"].value;
     const duration = serviceForm.elements["eventDuration"].value;
 
-    
     const newService = new Service(title, speaker,date,location,duration,); 
-
     //3. use the info
     const row = addRow(newService);
     serviceTable.appendChild(row); 
 
     serviceForm.reset();
 }
-
 function addRow(newService){
     const row = document.createElement("tr");
     row.innerHTML=`
@@ -49,7 +45,6 @@ function addRow(newService){
         if(!confirmation) return;
         row.remove();
     });
-
     return row;
 }
 serviceForm.addEventListener("submit", onSubmitService);
