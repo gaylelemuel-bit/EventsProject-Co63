@@ -35,29 +35,30 @@
 </header>
 <body>
     <h1> Add Service </h1>
-    <form class="container border p-5 bg-light">
+    <form id="servicesForm" class="container border p-5 bg-light">
         <div class="mb-3">
             <label>Title</label> 
-        <input class="form-control" type="text" name="eventTitle">
+        <input id="serviceTitle" class="form-control" type="text" name="eventTitle">
         </div>
         <div class="mb-3">
             <label>Speaker:</label>
-        <input class="form-control" type="text" name="eventSpeaker">
+        <input id="serviceSpeaker" class="form-control" type="text" name="eventSpeaker" >
         </div>
         <div class="mb-3">
             <label>Date:</label> 
-        <input class="form-control" type="date" name="eventDate">
+        <input id="serviceDate" class="form-control" type="date" name="eventDate" >
         </div>
         <div class="mb-3">
             <label>Loaction:</label>
-        <input class="form-control" type="text" name="eventLocation">
+        <input id="serviceLocation" class="form-control" type="text" name="eventLocation" >
         </div>
         <div class="mb-3">
             <label>Duration:</label>
-        <input class="form-control" type="text" name="eventDuration">
+        <input id="serviceDuration" class="form-control" type="text" name="eventDuration" >
         </div>
-        <div class="d-flex justify-content-end">
-            <button class=" btn btn-danger" type="submit">Add Service</button>
+        <div class="d-grid gap-2 d-md-flex">
+            <button class=" btn btn-primary" type="submit">Add Service</button>
+            <button class=" btn btn-secondary" type="reset">Reset</button>
         </div>
     </form>
     <section class="conatiner">
@@ -90,7 +91,7 @@
             </div>
         </section>    
     </footer>  
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="./scripts/services.js"></script>
 </body>
 </html>

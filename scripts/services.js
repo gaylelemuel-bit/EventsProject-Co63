@@ -1,7 +1,21 @@
-// 1. Identify the form
 const serviceForm = document.querySelector("form");
 const serviceTable = document.getElementById("serviceTable");
-
+// Handle the form submission 
+$("#servicesForm").submit(function(event){
+    event.preventDefault();
+});
+$("button").click(function(){
+    // Iterate over every input element 
+    //.val reads user input and .trim cleans white spaces
+    $("input").each(function(){
+        if ($(this).val().trim() === "") {
+            $(this).addClass("error");
+        }else {
+            $(this).removeClass("error"); 
+            return;
+        }
+    });
+});
 //product const
 function Service(title, speaker, date,location,duration){
     this.title = title ;
@@ -20,6 +34,12 @@ function onSubmitService(eventService){
     const date = serviceForm.elements["eventDate"].value;
     const location = serviceForm.elements["eventLocation"].value;
     const duration = serviceForm.elements["eventDuration"].value;
+
+       // --- VALIDATION LOGIC ADDED HERE ---
+    if (title === "" || speaker === "" || date === "" || location === "" || duration === "") {
+        alert("Error: One or more fields are empty. Cannot add service to table."); 
+        return; 
+    }
 
     const newService = new Service(title, speaker,date,location,duration,); 
     //3. use the info
