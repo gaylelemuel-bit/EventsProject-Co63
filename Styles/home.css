@@ -3,6 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(to bottom right, #333, #1a1a1a); 
+    color: #e0e0e0; 
+}
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode .event-content strong {
+    color: #e0e0e0;
+}
+
+body.dark-mode .event-container {
+    background-color: #3a3a3a; 
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .event-container:hover {
+    box-shadow: 0 10px 35px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .speaker-name-display,
+body.dark-mode .event-content p {
+    color: #ccc;
+}
+
+body.dark-mode .about {
+  border:2px solid #555; 
+}
+
+body.dark-mode .about-container h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .message {
+  color: #e0e0e0;
+}
 header{
     margin-left: -20px;
     margin-right: -30px;
