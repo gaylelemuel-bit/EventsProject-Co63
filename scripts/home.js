@@ -12,7 +12,6 @@ registerButtons.forEach(button => {
     button.addEventListener('click', directToRegisterPage);
 });
 
-
 // Dark Mode Toggle Logic
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.getElementById('page-body');
@@ -31,7 +30,7 @@ function setTheme(isDarkMode) {
         // Update navbar classes for Bootstrap light mode styling
         navbar.classList.remove('navbar-dark', 'bg-dark');
         navbar.classList.add('navbar-light', 'bg-light');
-        darkModeToggle.textContent = 'Toggle Dark Mode';
+        darkModeToggle.textContent = 'Dark Mode';
     }
 }
 
@@ -41,3 +40,26 @@ darkModeToggle.addEventListener('click', () => {
     // Toggle the theme without saving to local storage
     setTheme(!isDarkModeEnabled);
 });
+
+    const buyButton = document.getElementById('buy-button');
+    const orderFormContainer = document.getElementById('order-form-container');
+    const cancelButton = document.getElementById('cancel-button');
+    const orderForm = document.getElementById('order-form');
+
+    // Show the order form when the "Buy Now" button is clicked
+    buyButton.addEventListener('click', () => {
+        orderFormContainer.style.display = 'block';
+    });
+
+    // Hide the order form when cancelled
+    cancelButton.addEventListener('click', () => {
+        orderFormContainer.style.display = 'none';
+    });
+
+    orderForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        // hide the form after submission
+        orderFormContainer.style.display = 'none';
+        alert('Order submitted successfully!');
+    });

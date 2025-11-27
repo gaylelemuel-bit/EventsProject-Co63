@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.logo-img {
+    height: 5%; 
+    width: 7%; 
+    margin-right: 10px; 
+}
 
 header{
   color: #47aafc;
@@ -84,12 +89,27 @@ body {
     background-color: #0056b3;
 }
 .about-container{
-    margin: 50px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.about-Speaker {
+  flex-grow: 1; 
+  margin: 0; 
+  line-height: 1.6; 
 }
 .about{
     border:2px solid #47aafc;
     padding: 30px;
     display: flex;
+    flex-wrap: wrap;
 }
 .about img{
     width: 300px;
@@ -98,7 +118,46 @@ body {
 .error{
     border: 3px solid red;
 }
+
+table {
+    width: 50%;
+    max-width: 90%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    white-space: nowrap; 
+}
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+td, th {
+    word-break: break-word; 
+}
+#testimonials-section .card {
+    border: none;
+    transition: transform 0.2s;
+}
+
+#testimonials-section .card:hover {
+    transform: translateY(-5px);
+}
+
+#testimonials-section .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* FOOTER*/
+footer{
+    margin-left: -20px;
+    margin-right: -30px;
+    margin-top: 90px;
+    padding: 20px;
+    background: rgba(4, 146, 254, 0.19);
+    border-top: 2px solid #000;
+}
 .footer-container {
   padding: .5rem ;
   text-align: center;
@@ -119,4 +178,31 @@ body {
 .footer-text img {
   width: 2.5rem;
   height: 40px;
+}
+@media (max-width: 600px) {
+  .this-one,
+  .this-two {
+    flex-direction: column; 
+    align-items: center; 
+  }
+  .img-fluid{
+    max-width: 16rem;
+    height: auto;
+    display: block;
+}
+
+  table th,
+  table td {
+    padding: 4px; 
+    font-size: 0.8rem; 
+  }
+  table td {
+    word-break: break-all;
+  }
+
+  .this-one img,
+  .this-two img {
+    width: 80%; 
+    max-width: 200px;
+  }
 }
